@@ -103,6 +103,16 @@ const game = {
         this.lineThree.draw()
         this.drawCircle()
         this.drawText( this.x,  this.y)
+        
+        this.ctx.beginPath();
+        this.ctx.arc(this.x, this.y, 5, 0, Math.PI*2);
+        this.ctx.fillStyle = "#000000";
+        this.ctx.fill();
+        this.ctx.closePath();
+
+
+
+
     }, 
 
     drawText(x,y){
@@ -116,6 +126,8 @@ const game = {
     this.ctx.fillText(`θ1 ${teta1Grados}º`, 510, 90);
     this.ctx.strokeText(`θ2 ${teta2Grados}º`, 510, 120);
     this.ctx.fillText(`θ2 ${teta2Grados}º`, 510, 120);
+    // this.ctx.strokeText(`θ2: ${teta2Grados}º`,  this.lineOne.endX,  this.lineOne.endY);
+    // this.ctx.fillText(`θ2: ${teta2Grados}º`,  this.lineOne.endX,  this.lineOne.endY);
     },
 
     calculation(){
@@ -126,7 +138,7 @@ const game = {
         const betaGrado =beta*180/Math.PI
         // console.log("beta grados", betaGrado)
 
-        const alfa =Math.acos((this.x*this.x + this.y*this.y + lenghtOne*lenghtOne - lenghtTwo*lenghtTwo) / (2*lenghtOne*Math.sqrt((this.x*this.x + this.y*this.y)) ) )
+        const alfa =Math.acos(((this.x*this.x) + (this.y*this.y) + (lenghtOne*lenghtOne) - (lenghtTwo*lenghtTwo)) / (2*lenghtOne*(Math.sqrt(((this.x*this.x) + (this.y*this.y)))) ) )
         // const alfaGrado = alfa*180/Math.PI
         // console.log("alfa", alfaGrado)
 
@@ -139,7 +151,7 @@ const game = {
         const teta2 = Math.PI - beta
          teta2Grados = parseInt(teta2*180/Math.PI)
         angleOneConst =teta1Grados
-        angleTwoConst =teta2Grados
+        angleTwoConst =teta2Grados + teta1Grados
         // console.log("teta2Grados", teta2Grados)
         this.initialXOne=  Math.cos(angleOneConst*(Math.PI / 180))*lenghtOne
         this.initialYOne= Math.sin(angleOneConst*(Math.PI / 180)) *lenghtOne
