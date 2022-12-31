@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkboxes{
+    display:flex;
+    border: 2px solid red;
+    width: 50%;
+    padding: 2rem;
+}
+.checkboxes div{
+    display: flex;
+  margin-right: 2rem;
+  align-items: center;
+}
+
+.coordinates{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonPath{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

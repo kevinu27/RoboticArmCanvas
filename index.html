@@ -6,12 +6,26 @@
  
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="icon" type="image/x-icon" href="./ship.png"> -->
-    <title>Canvas</title>
+    <title>Canvas Brazo robot</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
 <div id="canvasId"></div>
 <canvas id="myCanvas" width="300" height="300" style="border: 2px solid red"></canvas>
+<div class="checkboxes">
+<div><input type="checkbox" id="path" name="path"  ><label for="path">Path</label></div>
+<div><button id="clean" class="cleanButton">clean</button></div>
+
+<div class="coordinates"><label for="clean">Y Coordinate</label><input type="text" id="xCoordinate" name="xCoordinate">
+<label for="clean">Y Coordinate</label><input type="text" id="yCoordinate" name="yCoordinate">
+<button id="coordinatesButton" class="buttonPath">Path to coordinates</button>
+</div>
+<div >
+  <label for="clean">Steps</label><input type="number" id="steps" name="yCoordinate">
+  </div>
+
+</div>
   </body>
   <script src="./line.js"></script>
 
