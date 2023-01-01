@@ -17,8 +17,11 @@ let yCoordinate
 let steps
 let initialPositionSimulation = {tita1:10 , tita2:140}
 let postinitialPositionSimulation = {tita1:10 , tita2:140}
+// let initialPositionSimulation = {tita1:44 , tita2:80}
+// let postinitialPositionSimulation = {tita1:44 , tita2:80}
 let currentTita1
 let tita1ArrivedTargetPosition = false
+let tita2ArrivedTargetPosition = false
 
 document.getElementById("path").onclick = function() {checkingboxFunction()};
 function checkingboxFunction() {
@@ -324,14 +327,14 @@ const game = {
            
         }
         if(finalAngleInRads().angleOneConst == initialPositionSimulation.tita1){
-            console.log(" initialPositionSimulation.tita1",  initialPositionSimulation.tita1)
-            console.log(" finalAngleInRads().angleOneConst",  finalAngleInRads().angleOneConst)
+            // console.log(" initialPositionSimulation.tita1",  initialPositionSimulation.tita1)
+            // console.log(" finalAngleInRads().angleOneConst",  finalAngleInRads().angleOneConst)
              tita1ArrivedTargetPosition = true
        
             // console.log("finalAngleInRads().angleOneConst = initialPositionSimulation.tita1 y pongo a true el tita1ArrivedTargetPosition")
         }
         if(tita1ArrivedTargetPosition ){
-            console.log("tercer if de si tita1ArrivedTargetPosition es true")
+            // console.log("tercer if de si tita1ArrivedTargetPosition es true")
             if(finalAngleInRads().angleTwoConst < initialPositionSimulation.tita2 ){
             initialPositionSimulation.tita2 -= 1
 
@@ -343,7 +346,7 @@ const game = {
         }
     }
     /////////////////////////7
-    if( finalAngleInRads().angleTwoConst > postinitialPositionSimulation.tita2){
+    if( finalAngleInRads().angleTwoConst < postinitialPositionSimulation.tita2){
         if(finalAngleInRads().angleOneConst > initialPositionSimulation.tita1){
             // console.log("finalAngleInRads().angleOneConst",finalAngleInRads().angleOneConst)
             // console.log("initialPositionSimulation.tita1",initialPositionSimulation.tita1)
@@ -357,14 +360,14 @@ const game = {
            
         }
         if(finalAngleInRads().angleOneConst == initialPositionSimulation.tita1){
-            console.log(" initialPositionSimulation.tita1",  initialPositionSimulation.tita1)
-            console.log(" finalAngleInRads().angleOneConst",  finalAngleInRads().angleOneConst)
+            // console.log(" initialPositionSimulation.tita1",  initialPositionSimulation.tita1)
+            // console.log(" finalAngleInRads().angleOneConst",  finalAngleInRads().angleOneConst)
              tita1ArrivedTargetPosition = true
        
             // console.log("finalAngleInRads().angleOneConst = initialPositionSimulation.tita1 y pongo a true el tita1ArrivedTargetPosition")
         }
         if(tita1ArrivedTargetPosition ){
-            console.log("tercer if de si tita1ArrivedTargetPosition es true")
+            // console.log("tercer if de si tita1ArrivedTargetPosition es true")
             if(finalAngleInRads().angleTwoConst > initialPositionSimulation.tita2 ){
             initialPositionSimulation.tita2 += 1
 
@@ -376,30 +379,108 @@ const game = {
         }
     }
 }
-  
+///////////////////main second block        
+// if(finalAngleInRads().angleOneConst < postinitialPositionSimulation.tita1 ){
+            ////////////
+            if( finalAngleInRads().angleTwoConst < postinitialPositionSimulation.tita2){
+                if(finalAngleInRads().angleOneConst < initialPositionSimulation.tita1){
+                    // console.log("finalAngleInRads().angleOneConst",finalAngleInRads().angleOneConst)
+                    // console.log("initialPositionSimulation.tita1",initialPositionSimulation.tita1)
+                    initialPositionSimulation.tita1 -= 1
+                    this.lineOne.endX =Math.cos(initialPositionSimulation.tita1*(Math.PI / 180))*lenghtOne
+                    this.lineOne.endY =Math.sin(initialPositionSimulation.tita1*(Math.PI / 180)) *lenghtOne
+                    this.lineTwo.originX = this.lineOne.endX
+                    this.lineTwo.originY = this.lineOne.endY
+                    this.lineTwo.endX = Math.cos(initialPositionSimulation.tita2*(Math.PI / 180))*lenghtTwo + Math.cos(initialPositionSimulation.tita1*(Math.PI / 180))*lenghtOne
+                    this.lineTwo.endY = Math.sin(initialPositionSimulation.tita2*(Math.PI / 180)) *lenghtTwo + Math.sin(initialPositionSimulation.tita1*(Math.PI / 180)) *lenghtOne
+                   
+                }
+                if(finalAngleInRads().angleOneConst == initialPositionSimulation.tita1){
+                    // console.log(" initialPositionSimulation.tita1",  initialPositionSimulation.tita1)
+                    // console.log(" finalAngleInRads().angleOneConst",  finalAngleInRads().angleOneConst)
+                    // console.log(" tita1ArrivedTargetPosition = true del segundo bloque-1")
+
+                     tita1ArrivedTargetPosition = true
+                }
+                if(finalAngleInRads().angleTwoConst == initialPositionSimulation.tita2){
+                    // console.log(" initialPositionSimulation.tita2",  initialPositionSimulation.tita2)
+                    // console.log(" finalAngleInRads().angleTwoConst",  finalAngleInRads().angleTwoConst)
+                     tita2ArrivedTargetPosition = true
+                }
+
+                if(tita1ArrivedTargetPosition ){
+                    // console.log("tercer if de si tita1ArrivedTargetPosition es true-----------------------")
+                    if(finalAngleInRads().angleTwoConst < initialPositionSimulation.tita2 ){
+                    initialPositionSimulation.tita2 -= 1
+                    // console.log("if(finalAngleInRads().angleTwoConst < initialPositionSimulation.tita2 ){")
+                    // this.lineTwo.originX = Math.cos(initialPositionSimulation.tita2*(Math.PI / 180))*lenghtOne
+                    // this.lineTwo.originY = Math.sin(initialPositionSimulation.tita2*(Math.PI / 180)) *lenghtOne
+                    this.lineTwo.endX = Math.cos(initialPositionSimulation.tita2*(Math.PI / 180))*lenghtTwo + Math.cos(initialPositionSimulation.tita1*(Math.PI / 180))*lenghtOne
+                    this.lineTwo.endY = Math.sin(initialPositionSimulation.tita2*(Math.PI / 180)) *lenghtTwo + Math.sin(initialPositionSimulation.tita1*(Math.PI / 180)) *lenghtOne
+                    }
+                // }
+            }
+            /////////////////////////7
+            // if( finalAngleInRads().angleTwoConst >= postinitialPositionSimulation.tita2){
+                console.log("por que no me entra por aqui???")
+                console.log("---------------------------")
+                console.log("finalAngleInRads().angleOneConst", finalAngleInRads().angleOneConst)
+                console.log("initialPositionSimulation.tita1", initialPositionSimulation.tita1)
+
+                console.log("---------------------------")
+                if(finalAngleInRads().angleOneConst < initialPositionSimulation.tita1){
+                    console.log("entre!!!!!!!!!!!!")
+                    // console.log("finalAngleInRads().angleOneConst",finalAngleInRads().angleOneConst)
+                    // console.log("initialPositionSimulation.tita1",initialPositionSimulation.tita1)
+                    initialPositionSimulation.tita1 -= 1
+                    this.lineOne.endX =Math.cos(initialPositionSimulation.tita1*(Math.PI / 180))*lenghtOne
+                    this.lineOne.endY =Math.sin(initialPositionSimulation.tita1*(Math.PI / 180)) *lenghtOne
+                    this.lineTwo.originX = this.lineOne.endX
+                    this.lineTwo.originY = this.lineOne.endY
+                    this.lineTwo.endX = Math.cos(initialPositionSimulation.tita2*(Math.PI / 180))*lenghtTwo + Math.cos(initialPositionSimulation.tita1*(Math.PI / 180))*lenghtOne
+                    this.lineTwo.endY = Math.sin(initialPositionSimulation.tita2*(Math.PI / 180)) *lenghtTwo + Math.sin(initialPositionSimulation.tita1*(Math.PI / 180)) *lenghtOne
+                   
+                }
+                if(finalAngleInRads().angleOneConst == initialPositionSimulation.tita1){
+                    // console.log(" initialPositionSimulation.tita1",  initialPositionSimulation.tita1)
+                    // console.log(" finalAngleInRads().angleOneConst",  finalAngleInRads().angleOneConst)
+                    // console.log(" tita1ArrivedTargetPosition = true del segundo bloque-2")
+                     tita1ArrivedTargetPosition = true
+               
+                }
+                if(finalAngleInRads().angleTwoConst == initialPositionSimulation.tita2){
+                    // console.log(" initialPositionSimulation.tita2",  initialPositionSimulation.tita2)
+                    // console.log(" finalAngleInRads().angleTwoConst",  finalAngleInRads().angleTwoConst)
+                    // console.log(" tita222ArrivedTargetPosition = true del segundo bloque-2")
+
+                     tita2ArrivedTargetPosition = true
+                }
+                console.log("tita1ArrivedTargetPosition: ", tita1ArrivedTargetPosition)
+                if(tita1ArrivedTargetPosition ){
+                    // console.log("tercer if de si tita1ArrivedTargetPosition es true")
+                    console.log("está entrando por aqui??????????????")
+                    if(finalAngleInRads().angleTwoConst > initialPositionSimulation.tita2 ){
+                    initialPositionSimulation.tita2 += 1
+        
+                    // this.lineTwo.originX = Math.cos(initialPositionSimulation.tita2*(Math.PI / 180))*lenghtOne
+                    // this.lineTwo.originY = Math.sin(initialPositionSimulation.tita2*(Math.PI / 180)) *lenghtOne
+                    this.lineTwo.endX = Math.cos(initialPositionSimulation.tita2*(Math.PI / 180))*lenghtTwo + Math.cos(initialPositionSimulation.tita1*(Math.PI / 180))*lenghtOne
+                    this.lineTwo.endY = Math.sin(initialPositionSimulation.tita2*(Math.PI / 180)) *lenghtTwo + Math.sin(initialPositionSimulation.tita1*(Math.PI / 180)) *lenghtOne
+                    }
+                }
+            // }
+        }
+        
+        if(tita1ArrivedTargetPosition == true && tita2ArrivedTargetPosition == true){
+            tita1ArrivedTargetPosition = false
+            tita2ArrivedTargetPosition = false
+            console.log("ambos a FALSE")
+        }
     }
     finalAngleInRads()
     // console.log("finalAngleInRads", finalAngleInRads().angleOneConst)
     currentAngleInRads()
     
-    // calcular grados actuales
-
-    // dibuja grados actuales
-    // this.lineTwo.originX = Math.cos(finalAngleInRads().angleOneConst*(Math.PI / 180))*lenghtOne
-    // this.lineTwo.originY = Math.sin(finalAngleInRads().angleOneConst*(Math.PI / 180)) *lenghtOne
-    
-    // this.lineOne.endX =Math.cos(finalAngleInRads().angleOneConst*(Math.PI / 180))*lenghtOne
-    // this.lineOne.endY =Math.sin(finalAngleInRads().angleOneConst*(Math.PI / 180)) *lenghtOne
-
-    // this.lineTwo.endX = Math.cos(finalAngleInRads().angleTwoConst*(Math.PI / 180))*lenghtTwo + Math.cos(finalAngleInRads().angleOneConst*(Math.PI / 180))*lenghtOne
-    // this.lineTwo.endY = Math.sin(finalAngleInRads().angleTwoConst*(Math.PI / 180)) *lenghtTwo + Math.sin(finalAngleInRads().angleOneConst*(Math.PI / 180)) *lenghtOne
-    // // aqui va subiendo grado a a grado hasta el objetivo y le suma 
-
-
-
-
-
-
 } 
     },
     drawAllMotorSimulation(){
